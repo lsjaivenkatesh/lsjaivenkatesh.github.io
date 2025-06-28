@@ -1,302 +1,626 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe - Python Backend Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Jaivenkatesh L - Backend Software Engineer</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #111827; /* Tailwind gray-900 */
-            color: #d1d5db; /* Tailwind gray-300 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
         }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: black;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid rgba(106, 19, 163, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
         .section-title {
-            @apply text-3xl font-bold text-white mb-8 text-center;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
         }
-        .card {
-            @apply bg-gray-800 rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105;
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
         }
-        .tag {
-            @apply bg-teal-400/10 text-teal-300 text-xs font-semibold px-2.5 py-0.5 rounded-full;
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-info h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .about-info p {
+            margin-bottom: 1.5rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item span {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-title h3 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-title h4 {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .experience-duration {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-card li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .experience-card li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* Education Section */
+        .education-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .education-card h3 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-card h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .gpa {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <!-- Header & Navigation -->
-    <header class="bg-gray-800/80 backdrop-blur-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white">John Doe</a>
-            <div class="hidden md:flex space-x-6 text-gray-300">
-                <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
-                <a href="#skills" class="hover:text-teal-400 transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-teal-400 transition-colors">Projects</a>
-                <a href="#experience" class="hover:text-teal-400 transition-colors">Experience</a>
-                <a href="#contact" class="hover:text-teal-400 transition-colors">Contact</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden text-white">
-                <i data-lucide="menu"></i>
-            </button>
-        </nav>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 hover:text-teal-400 transition-colors">About</a>
-            <a href="#skills" class="block py-2 hover:text-teal-400 transition-colors">Skills</a>
-            <a href="#projects" class="block py-2 hover:text-teal-400 transition-colors">Projects</a>
-            <a href="#experience" class="block py-2 hover:text-teal-400 transition-colors">Experience</a>
-            <a href="#contact" class="block py-2 hover:text-teal-400 transition-colors">Contact</a>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">JL</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <main class="container mx-auto px-6 py-12 md:py-20">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Jaivenkatesh L</h1>
+            <p>Backend Software Engineer | Python | Flask | Data Processing</p>
+            <a href="#about" class="cta-button">Discover My Work</a>
+        </div>
+    </section>
 
-        <!-- Hero Section -->
-        <section id="hero" class="text-center min-h-[60vh] flex flex-col justify-center items-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
-                Python Backend Developer
-            </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-8">
-                I design and build robust, scalable, and efficient backend systems, crafting clean APIs and solving complex problems with Python.
-            </p>
-            <div class="flex space-x-4">
-                <a href="#contact" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-lg transition-all">
-                    Get in Touch
-                </a>
-                <a href="https://github.com/johndoe" target="_blank" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-all flex items-center space-x-2">
-                    <i data-lucide="github" class="w-5 h-5"></i>
-                    <span>GitHub</span>
-                </a>
-                 <a href="https://linkedin.com/in/johndoe" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all flex items-center space-x-2">
-                    <i data-lucide="linkedin" class="w-5 h-5"></i>
-                    <span>LinkedIn</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- About Me -->
-        <section id="about" class="py-20">
-             <h2 class="section-title">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center gap-10">
-                <div class="w-full md:w-1/3 flex justify-center">
-                    <img src="https://placehold.co/300x300/1f2937/d1d5db?text=JD" alt="John Doe" class="rounded-full w-64 h-64 md:w-72 md:h-72 object-cover border-4 border-gray-700">
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Chennai, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+91 9176849828</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <span>lsjaivenkatesh@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <span>LinkedIn Profile</span>
+                    </div>
                 </div>
-                <div class="w-full md:w-2/3 text-lg text-gray-400 space-y-4">
-                    <p>
-                        Hello! I'm John, a Python Backend Developer with a passion for building high-quality, scalable web applications. With over 5 years of experience, I specialize in architecting and implementing backend services, RESTful APIs, and database solutions.
-                    </p>
-                    <p>
-                        My focus is on writing clean, maintainable, and test-driven code. I thrive in collaborative environments and enjoy tackling complex challenges to deliver efficient and reliable software. I'm proficient with frameworks like Django and FastAPI and have extensive experience with deploying applications to cloud environments.
-                    </p>
-                     <p>
-                        When I'm not coding, I enjoy contributing to open-source projects, exploring new technologies, and hiking in the great outdoors.
-                    </p>
+                <div class="about-info">
+                    <h3>Career Objective</h3>
+                    <p>Dynamic and diligent backend software engineer with 2 years of experience, proficient in Python, Flask, and Pandas. I'm passionate about solving complex problems and enhancing data processing capabilities.</p>
+                    <p>Currently seeking opportunities to leverage my skills in developing high-performance and scalable web applications. I'm eager to collaborate with forward-thinking teams to drive innovation and deliver impactful solutions in the technology space.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills -->
-        <section id="skills" class="py-20">
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-title">
+                        <h3>Software Engineer Level 1</h3>
+                        <h4>Hexaware Technologies, Chennai</h4>
+                    </div>
+                    <div class="experience-duration">March 2022 - Present</div>
+                </div>
+                <ul>
+                    <li>Working as a backend developer for a leading Healthcare client in the Incentive Compensation domain</li>
+                    <li>Developing solutions for calculating incentive compensation for sales force personnel across 4 key modules: Plans, Goals, MBOs, and Schedules</li>
+                    <li>Built robust REST APIs using Python 3 and Flask framework for seamless data processing</li>
+                    <li>Utilized Pandas, NumPy, and Polars for complex analytical calculations and data manipulation</li>
+                    <li>Implemented automated test cases for CI/CD pipeline using Unit Test framework</li>
+                    <li>Developed technical features including JSON validation and Swagger API documentation</li>
+                    <li>Managed version control with Git, coordinating team collaboration and resolving merge conflicts</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
             <h2 class="section-title">Technical Skills</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
-                <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="python" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">Python</h3>
-                </div>
-                <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="server" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">Django</h3>
-                </div>
-                <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="zap" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">FastAPI</h3>
-                </div>
-                 <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="flask" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">Flask</h3>
-                </div>
-                <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="database" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">PostgreSQL</h3>
-                </div>
-                <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="leaf" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">MongoDB</h3>
-                </div>
-                <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="boxes" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">Docker</h3>
-                </div>
-                <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="cloud" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">AWS</h3>
-                </div>
-                 <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="git-branch" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">Git</h3>
-                </div>
-                <div class="card items-center justify-center flex flex-col">
-                    <i data-lucide="network" class="w-12 h-12 text-teal-400 mb-2"></i>
-                    <h3 class="font-semibold text-white">REST APIs</h3>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects" class="py-20">
-            <h2 class="section-title">Projects</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="card">
-                    <h3 class="text-xl font-bold text-white mb-2">E-commerce API</h3>
-                    <p class="text-gray-400 mb-4">A full-featured RESTful API for an e-commerce platform with product management, user authentication, orders, and payments.</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="tag">Django</span>
-                        <span class="tag">DRF</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">Stripe</span>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-teal-400 hover:text-teal-300 font-semibold flex items-center space-x-1">
-                            <i data-lucide="github" class="w-4 h-4"></i>
-                            <span>Source Code</span>
-                        </a>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
                     </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="card">
-                    <h3 class="text-xl font-bold text-white mb-2">Real-time Chat App</h3>
-                    <p class="text-gray-400 mb-4">A WebSocket-based chat application allowing users to have real-time one-on-one and group conversations.</p>
-                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="tag">FastAPI</span>
-                        <span class="tag">WebSockets</span>
-                        <span class="tag">Redis</span>
-                        <span class="tag">Docker</span>
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-teal-400 hover:text-teal-300 font-semibold flex items-center space-x-1">
-                            <i data-lucide="github" class="w-4 h-4"></i>
-                            <span>Source Code</span>
-                        </a>
-                         <a href="#" class="text-teal-400 hover:text-teal-300 font-semibold flex items-center space-x-1">
-                            <i data-lucide="external-link" class="w-4 h-4"></i>
-                            <span>Live Demo</span>
-                        </a>
+                <div class="skill-category">
+                    <h3>Libraries & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Polars</span>
+                        <span class="skill-tag">Snowpark</span>
                     </div>
                 </div>
-                <!-- Project 3 -->
-                <div class="card">
-                    <h3 class="text-xl font-bold text-white mb-2">Task Management System</h3>
-                    <p class="text-gray-400 mb-4">A task management API with JWT authentication, task creation, updates, and user-specific permissions.</p>
-                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="tag">Flask</span>
-                        <span class="tag">SQLAlchemy</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">Pytest</span>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyCharm</span>
+                        <span class="skill-tag">Eclipse</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">NPM</span>
                     </div>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-teal-400 hover:text-teal-300 font-semibold flex items-center space-x-1">
-                            <i data-lucide="github" class="w-4 h-4"></i>
-                            <span>Source Code</span>
-                        </a>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">SQLite</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Methodologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MVC Architecture</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">Unit Testing</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience -->
-        <section id="experience" class="py-20">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="relative border-l-2 border-gray-700">
-                <!-- Experience Item 1 -->
-                <div class="mb-10 ml-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i data-lucide="briefcase" class="w-3 h-3 text-white"></i>
-                    </span>
-                    <h3 class="flex items-center mb-1 text-xl font-semibold text-white">Senior Backend Developer <span class="text-teal-400 bg-teal-900/50 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Present</span></h3>
-                    <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Tech Solutions Inc. | 2022 - Present</time>
-                    <p class="mb-4 text-base font-normal text-gray-400">Led the development of microservices architecture for a new SaaS product. Improved API performance by 40% and mentored junior developers.</p>
-                </div>
-                 <!-- Experience Item 2 -->
-                 <div class="mb-10 ml-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i data-lucide="briefcase" class="w-3 h-3 text-white"></i>
-                    </span>
-                    <h3 class="text-xl font-semibold text-white">Backend Developer</h3>
-                    <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Innovate Co. | 2020 - 2022</time>
-                    <p class="text-base font-normal text-gray-400">Developed and maintained Django-based web applications for various clients. Integrated third-party APIs and implemented a CI/CD pipeline.</p>
-                </div>
-                 <!-- Experience Item 3 -->
-                <div class="ml-6">
-                     <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-500 rounded-full -left-3 ring-8 ring-gray-800">
-                        <i data-lucide="briefcase" class="w-3 h-3 text-white"></i>
-                    </span>
-                    <h3 class="text-xl font-semibold text-white">Junior Python Developer</h3>
-                    <time class="block mb-2 text-sm font-normal leading-none text-gray-500">Data Systems LLC | 2018 - 2020</time>
-                    <p class="text-base font-normal text-gray-400">Assisted in developing data processing scripts and building internal tools. Gained foundational experience in Python and web development.</p>
-                </div>
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3>SRM Valliammai Engineering College</h3>
+                <h4>Bachelor of Technology - Information Technology</h4>
+                <p><strong>Location:</strong> Chengalpattu, Tamil Nadu</p>
+                <p><strong>Duration:</strong> June 2018 - May 2022</p>
+                <div class="gpa">GPA: 8.2/10.0</div>
             </div>
-        </section>
-
-
-        <!-- Contact -->
-        <section id="contact" class="py-20">
-            <h2 class="section-title">Contact Me</h2>
-            <div class="max-w-xl mx-auto">
-                <p class="text-center text-lg text-gray-400 mb-8">
-                    I'm currently available for freelance work or new opportunities. Feel free to reach out!
-                </p>
-                <form action="#" method="POST" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-sm font-medium text-gray-300">Full Name</label>
-                        <input type="text" name="name" id="name" required class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-teal-500 focus:border-teal-500">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-sm font-medium text-gray-300">Email Address</label>
-                        <input type="email" name="email" id="email" required class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-teal-500 focus:border-teal-500">
-                    </div>
-                     <div>
-                        <label for="message" class="block text-sm font-medium text-gray-300">Message</label>
-                        <textarea name="message" id="message" rows="4" required class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-3 px-4 text-white focus:outline-none focus:ring-teal-500 focus:border-teal-500"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-lg transition-all w-full md:w-auto">
-                            Send Message
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800">
-        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
-            &copy; 2024 John Doe. All Rights Reserved.
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Jaivenkatesh L. All rights reserved. | Backend Software Engineer</p>
         </div>
     </footer>
 
     <script>
-        // Lucide Icons
-        lucide.createIcons();
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
 
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
             });
+        }, observerOptions);
+
+        // Observe all sections for scroll animations
+        document.querySelectorAll('section').forEach(section => {
+            if (section.id !== 'home') {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            }
         });
     </script>
 </body>
