@@ -3,625 +3,894 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaivenkatesh L - Backend Software Engineer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>Jaivenkatesh L — Backend Software Engineer</title>
+    <meta name="description" content="Portfolio of Jaivenkatesh L — Results-driven Backend Software Engineer with 4+ years of experience in Python, FastAPI, Flask, and scalable API design.">
+    <meta name="keywords" content="Backend Engineer, Python, FastAPI, Flask, Software Engineer, Portfolio">
+    <meta name="author" content="Jaivenkatesh L">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            min-height: 100vh;
-        }
+    <!-- Open Graph -->
+    <meta property="og:title" content="Jaivenkatesh L — Backend Software Engineer">
+    <meta property="og:description" content="4+ years building scalable APIs, data pipelines, and intelligent document engines.">
+    <meta property="og:type" content="website">
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #667eea;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: black;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: slideInDown 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: slideInUp 1s ease-out 0.3s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 12px 30px;
-            background: rgba(255, 255, 255, 0.2);
-            color: black;
-            text-decoration: none;
-            border-radius: 50px;
-            border: 2px solid rgba(106, 19, 163, 0.3);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            animation: slideInUp 1s ease-out 0.6s both;
-        }
-
-        .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        section:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-info h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .about-info p {
-            margin-bottom: 1.5rem;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .contact-info {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 2rem;
-            border-radius: 15px;
-            color: white;
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .contact-item span {
-            margin-right: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* Experience Section */
-        .experience-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            border-left: 4px solid #667eea;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .experience-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-title h3 {
-            color: #333;
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-title h4 {
-            color: #667eea;
-            font-weight: 500;
-        }
-
-        .experience-duration {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-
-        .experience-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-card li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .experience-card li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-category h3 {
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            justify-content: center;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            transform: scale(1.05);
-        }
-
-        /* Education Section */
-        .education-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .education-card h3 {
-            color: #333;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .education-card h4 {
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .gpa {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Animations */
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .experience-header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
     <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="logo">JL</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-            </ul>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">{</span>LSJ<span class="logo-bracket">}</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
-            <h1>Jaivenkatesh L</h1>
-            <p>Backend Software Engineer | Python | Flask | Data Processing</p>
-            <a href="#about" class="cta-button">Discover My Work</a>
+            <div class="hero-text">
+                <div class="hero-greeting" data-animate="fade-up">
+                    <span class="greeting-line"></span>
+                    <span>Hello, I'm</span>
+                </div>
+                <h1 class="hero-name" data-animate="fade-up" data-delay="100">
+                    Jaivenkatesh <span class="accent">L</span>
+                </h1>
+                <div class="hero-title-wrapper" data-animate="fade-up" data-delay="200">
+                    <span class="hero-title-prefix">&#47;&#47;</span>
+                    <h2 class="hero-title" id="typedTitle"></h2>
+                    <span class="typed-cursor">|</span>
+                </div>
+                <p class="hero-description" data-animate="fade-up" data-delay="300">
+                    Results-driven Backend Software Engineer with <strong>4+ years</strong> of experience 
+                    specializing in Python enterprise application development, scalable API design, 
+                    and data engineering.
+                </p>
+                <div class="hero-cta" data-animate="fade-up" data-delay="400">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+                <div class="hero-stats" data-animate="fade-up" data-delay="500">
+                    <div class="stat">
+                        <span class="stat-number" data-count="4">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="4">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Enterprise Projects</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-label">Promotions</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual" data-animate="fade-left" data-delay="200">
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <span class="code-filename">about_me.py</span>
+                    </div>
+                    <pre class="code-body"><code><span class="code-keyword">class</span> <span class="code-class">BackendEngineer</span>:
+    <span class="code-keyword">def</span> <span class="code-func">__init__</span>(<span class="code-param">self</span>):
+        <span class="code-param">self</span>.name = <span class="code-string">"Jaivenkatesh L"</span>
+        <span class="code-param">self</span>.role = <span class="code-string">"Software Engineer L2"</span>
+        <span class="code-param">self</span>.stack = [
+            <span class="code-string">"Python"</span>, <span class="code-string">"FastAPI"</span>,
+            <span class="code-string">"Flask"</span>, <span class="code-string">"LangChain"</span>
+        ]
+        <span class="code-param">self</span>.passion = <span class="code-string">"Clean Architecture"</span>
+
+    <span class="code-keyword">def</span> <span class="code-func">build</span>(<span class="code-param">self</span>):
+        <span class="code-keyword">return</span> <span class="code-string">"Scalable Solutions"</span></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" data-animate="fade-up" data-delay="600">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section class="section about" id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-item">
-                        <span>📍</span>
-                        <span>Chennai, India</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>📞</span>
-                        <span>+91 9176849828</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>✉️</span>
-                        <span>lsjaivenkatesh@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>💼</span>
-                        <span>LinkedIn Profile</span>
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">&lt;about&gt;</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-image-col" data-animate="fade-right">
+                    <div class="about-image-wrapper">
+                        <div class="about-image-frame">
+                            <div class="about-avatar">
+                                <span class="avatar-text">LSJ</span>
+                            </div>
+                        </div>
+                        <div class="about-image-decoration"></div>
+                        <div class="about-badge">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Microsoft Certified</span>
+                        </div>
                     </div>
                 </div>
-                <div class="about-info">
-                    <h3>Career Objective</h3>
-                    <p>Dynamic and diligent backend software engineer with 2 years of experience, proficient in Python, Flask, and Pandas. I'm passionate about solving complex problems and enhancing data processing capabilities.</p>
-                    <p>Currently seeking opportunities to leverage my skills in developing high-performance and scalable web applications. I'm eager to collaborate with forward-thinking teams to drive innovation and deliver impactful solutions in the technology space.</p>
+                <div class="about-text-col" data-animate="fade-left">
+                    <p class="about-intro">
+                        I'm a <strong>Backend Software Engineer</strong> based in <strong>Chennai, India</strong>, 
+                        currently working at <strong>Hexaware Technologies</strong> as a Software Engineer Level 2.
+                    </p>
+                    <p>
+                        My journey in software engineering has been focused on building robust, 
+                        scalable backend systems that power enterprise applications. I specialize in 
+                        architecting <strong>custom MDM data pipelines</strong>, deploying 
+                        <strong>intelligent document processing engines</strong> via Generative AI, 
+                        and optimizing computational pipelines for maximum performance.
+                    </p>
+                    <p>
+                        I'm passionate about <strong>clean architecture</strong> and writing code that 
+                        not only works but is maintainable, testable, and elegant. When I'm not coding, 
+                        I'm exploring new technologies and pushing the boundaries of what's possible 
+                        with Python.
+                    </p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </span>
+                            <span>Chennai, India</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                    <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                                </svg>
+                            </span>
+                            <span>Hexaware Technologies</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                    <path d="M6 12v5c6 5 6 0 12 0v-5"/>
+                                </svg>
+                            </span>
+                            <span>B.Tech in Information Technology</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                            </span>
+                            <span>4+ Years Experience</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience">
+    <section class="section experience" id="experience">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="experience-card">
-                <div class="experience-header">
-                    <div class="experience-title">
-                        <h3>Software Engineer Level 1</h3>
-                        <h4>Hexaware Technologies, Chennai</h4>
-                    </div>
-                    <div class="experience-duration">March 2022 - Present</div>
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">&lt;experience&gt;</span>
+                <h2 class="section-title">Professional Journey</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="timeline">
+                <!-- Timeline Line -->
+                <div class="timeline-line">
+                    <div class="timeline-progress" id="timelineProgress"></div>
                 </div>
-                <ul>
-                    <li>Working as a backend developer for a leading Healthcare client in the Incentive Compensation domain</li>
-                    <li>Developing solutions for calculating incentive compensation for sales force personnel across 4 key modules: Plans, Goals, MBOs, and Schedules</li>
-                    <li>Built robust REST APIs using Python 3 and Flask framework for seamless data processing</li>
-                    <li>Utilized Pandas, NumPy, and Polars for complex analytical calculations and data manipulation</li>
-                    <li>Implemented automated test cases for CI/CD pipeline using Unit Test framework</li>
-                    <li>Developed technical features including JSON validation and Swagger API documentation</li>
-                    <li>Managed version control with Git, coordinating team collaboration and resolving merge conflicts</li>
-                </ul>
+
+                <!-- Role 1: SE Level 2 -->
+                <div class="timeline-item" data-animate="fade-up">
+                    <div class="timeline-dot active">
+                        <div class="dot-ping"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Software Engineer Level 2</h3>
+                                <p class="timeline-company">Hexaware Technologies</p>
+                            </div>
+                            <span class="timeline-date">Jun 2025 — Present</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Leading backend architecture initiatives and mentoring junior engineers. 
+                            Driving technical decisions for enterprise-grade solutions.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Leadership</span>
+                            <span class="tag">Architecture</span>
+                            <span class="tag">FastAPI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 2: SE Level 1 -->
+                <div class="timeline-item" data-animate="fade-up" data-delay="100">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Software Engineer Level 1</h3>
+                                <p class="timeline-company">Hexaware Technologies</p>
+                            </div>
+                            <span class="timeline-date">Jun 2024 — Jun 2025</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Spearheaded development of intelligent document processing engines 
+                            and enterprise incentive compensation analytics platforms.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">LangChain</span>
+                            <span class="tag">Gen AI</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Polars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Role 3: Associate SE -->
+                <div class="timeline-item" data-animate="fade-up" data-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Associate Software Engineer</h3>
+                                <p class="timeline-company">Hexaware Technologies</p>
+                            </div>
+                            <span class="timeline-date">Mar 2022 — Jun 2024</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Built foundational backend services and RESTful APIs. Developed automated 
+                            test suites and contributed to CI/CD pipeline stability.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Flask</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">CI/CD</span>
+                            <span class="tag">Unit Testing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="timeline-item" data-animate="fade-up" data-delay="300">
+                    <div class="timeline-dot edu"></div>
+                    <div class="timeline-content edu-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">B.Tech — Information Technology</h3>
+                                <p class="timeline-company">SRM Valliammai Engineering College</p>
+                            </div>
+                            <span class="timeline-date">Jun 2018 — May 2022</span>
+                        </div>
+                        <p class="timeline-desc">
+                            Graduated with a <strong>CGPA of 8.2/10.0</strong>. Built a strong foundation 
+                            in computer science, data structures, algorithms, and software engineering principles.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">GPA: 8.2/10</span>
+                            <span class="tag">Chengalpattu, TN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">&lt;projects&gt;</span>
+                <h2 class="section-title">My Projects</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Professional Projects -->
+            <div class="projects-subsection" data-animate="fade-up">
+                <div class="subsection-header">
+                    <div class="subsection-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                        </svg>
+                    </div>
+                    <h3 class="subsection-title">Professional Projects</h3>
+                    <div class="subsection-line"></div>
+                </div>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: MDM Pipeline -->
+                <div class="project-card" data-animate="fade-up">
+                    <div class="project-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div class="project-number">01</div>
+                    <h3 class="project-title">Enterprise MDM Data Pipeline</h3>
+                    <p class="project-desc">
+                        Architected a scalable data ingestion framework from scratch, centralizing 
+                        multi-source client assets into an MDM platform (Reltio). Built bidirectional 
+                        synchronization workflows with asynchronous processing.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Multi-source data centralization</span>
+                        </div>
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Bidirectional sync workflows</span>
+                        </div>
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Async processing architecture</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Reltio MDM</span>
+                        <span>REST APIs</span>
+                        <span>Async</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: IDP Engine -->
+                <div class="project-card featured" data-animate="fade-up" data-delay="100">
+                    <div class="project-featured-badge">★ Featured</div>
+                    <div class="project-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2a4 4 0 014 4c0 1.95-2 4-4 6-2-2-4-4.05-4-6a4 4 0 014-4z"/>
+                            <path d="M12 12c2 2 4 4.05 4 6a4 4 0 01-8 0c0-1.95 2-4 4-6z"/>
+                            <path d="M2 12c2-2 4.05-4 6-4s4 2 6 4c-2 2-4.05 4-6 4s-4-2-6-4z"/>
+                        </svg>
+                    </div>
+                    <div class="project-number">02</div>
+                    <h3 class="project-title">Intelligent Document Processing Engine</h3>
+                    <p class="project-desc">
+                        Designed a highly concurrent document automation backend leveraging FastAPI 
+                        for enterprise compliance tracking. Integrated OCR and orchestrated LLMs 
+                        via LangChain for semantic content modification and automated generation.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Generative AI integration</span>
+                        </div>
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>OCR text extraction pipeline</span>
+                        </div>
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>LangChain LLM orchestration</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span>FastAPI</span>
+                        <span>LangChain</span>
+                        <span>OCR</span>
+                        <span>Gen AI</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Analytics Platform -->
+                <div class="project-card" data-animate="fade-up" data-delay="200">
+                    <div class="project-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M18 20V10"/>
+                            <path d="M12 20V4"/>
+                            <path d="M6 20v-6"/>
+                        </svg>
+                    </div>
+                    <div class="project-number">03</div>
+                    <h3 class="project-title">Incentive Compensation Analytics</h3>
+                    <p class="project-desc">
+                        Optimized backend logic for core computational modules (MBO &amp; Goals tracking). 
+                        Developed vectorized operations via Pandas and Polars to minimize compute 
+                        runtime and memory overhead.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Vectorized data operations</span>
+                        </div>
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Optimized RESTful API endpoints</span>
+                        </div>
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Performance metrics serving</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span>Flask</span>
+                        <span>Pandas</span>
+                        <span>Polars</span>
+                        <span>NumPy</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Performance Tracking -->
+                <div class="project-card" data-animate="fade-up" data-delay="300">
+                    <div class="project-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <div class="project-number">04</div>
+                    <h3 class="project-title">Commercial Performance Tracker</h3>
+                    <p class="project-desc">
+                        Designed and deployed core backend features and modular API schemas using 
+                        FastAPI to monitor field team performance indicators. Built comprehensive 
+                        automated test suites to stabilize CI/CD pipeline runs.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Modular API schema design</span>
+                        </div>
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Comprehensive test suites</span>
+                        </div>
+                        <div class="highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>CI/CD pipeline integration</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span>FastAPI</span>
+                        <span>Unittest</span>
+                        <span>CI/CD</span>
+                        <span>OpenAPI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Projects -->
+            <div class="projects-subsection personal" data-animate="fade-up">
+                <div class="subsection-header">
+                    <div class="subsection-icon personal-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="subsection-title">Personal Projects</h3>
+                    <div class="subsection-line"></div>
+                </div>
+            </div>
+            <div class="personal-projects-empty" data-animate="fade-up">
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+                        </svg>
+                    </div>
+                    <h4>Coming Soon</h4>
+                    <p>Personal projects are in the works. Check out my GitHub for the latest updates!</p>
+                    <a href="https://github.com/lsjaivenkatesh" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+                        </svg>
+                        <span>View GitHub Profile</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
+    <section class="section skills" id="skills">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">&lt;skills&gt;</span>
+                <h2 class="section-title">Tech Arsenal</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">SQL</span>
+                <!-- Languages -->
+                <div class="skill-category" data-animate="fade-up">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3>Languages</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">HTML5 / CSS</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Libraries & Frameworks</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">Polars</span>
-                        <span class="skill-tag">Snowpark</span>
+
+                <!-- Frameworks -->
+                <div class="skill-category" data-animate="fade-up" data-delay="100">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18"/>
+                                <path d="M9 21V9"/>
+                            </svg>
+                        </div>
+                        <h3>Frameworks & Libraries</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">FastAPI</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Flask</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">LangChain</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Pandas / Polars</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools & Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PyCharm</span>
-                        <span class="skill-tag">Eclipse</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">NPM</span>
+
+                <!-- Data Platforms -->
+                <div class="skill-category" data-animate="fade-up" data-delay="200">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                            </svg>
+                        </div>
+                        <h3>Data & Platforms</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Reltio MDM</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MySQL / SQLite</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MongoDB</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Power BI</span>
+                                <span class="skill-level">Certified</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">SQLite</span>
-                        <span class="skill-tag">MongoDB</span>
+
+                <!-- DevOps -->
+                <div class="skill-category" data-animate="fade-up" data-delay="300">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+                            </svg>
+                        </div>
+                        <h3>Tools & DevOps</h3>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Methodologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MVC Architecture</span>
-                        <span class="skill-tag">RESTful APIs</span>
-                        <span class="skill-tag">Unit Testing</span>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Git / GitLab</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CI/CD Pipelines</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Swagger / OpenAPI</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Postman</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Apache Airflow</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education">
+    <!-- Certification Section -->
+    <section class="section certifications" id="certifications">
         <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-card">
-                <h3>SRM Valliammai Engineering College</h3>
-                <h4>Bachelor of Technology - Information Technology</h4>
-                <p><strong>Location:</strong> Chengalpattu, Tamil Nadu</p>
-                <p><strong>Duration:</strong> June 2018 - May 2022</p>
-                <div class="gpa">GPA: 8.2/10.0</div>
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">&lt;certifications&gt;</span>
+                <h2 class="section-title">Certifications</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="cert-card" data-animate="fade-up">
+                <div class="cert-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="8" r="6"/>
+                        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                    </svg>
+                </div>
+                <div class="cert-info">
+                    <h3 class="cert-title">Microsoft Certified: Power BI Data Analyst</h3>
+                    <p class="cert-subtitle">PL-300 — Microsoft / Azure Cloud Infrastructure</p>
+                    <p class="cert-desc">
+                        Demonstrated expertise in data visualization, modeling, and analytics 
+                        using Microsoft Power BI and Azure cloud services.
+                    </p>
+                </div>
+                <div class="cert-badge">
+                    <span class="badge-text">Verified</span>
+                </div>
+            </div>
+            <div class="cert-card" data-animate="fade-up" data-delay="100">
+                <div class="cert-icon snowflake-cert">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="8" r="6"/>
+                        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                    </svg>
+                </div>
+                <div class="cert-info">
+                    <h3 class="cert-title">SnowPro Associate: Platform Certification</h3>
+                    <p class="cert-subtitle">Snowflake</p>
+                    <p class="cert-desc">
+                        Validated proficiency in Snowflake's cloud data platform, including 
+                        data warehousing, data loading, and performance optimization.
+                    </p>
+                </div>
+                <div class="cert-badge">
+                    <span class="badge-text">Verified</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">&lt;contact&gt;</span>
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content" data-animate="fade-up">
+                <p class="contact-intro">
+                    I'm always open to discussing new projects, creative ideas, or 
+                    opportunities to be part of your vision. Let's build something great together.
+                </p>
+                <div class="contact-cards">
+                    <a href="mailto:Isjaivenkatesh@gmail.com" class="contact-card" id="contact-email">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="M22 7l-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/>
+                            </svg>
+                        </div>
+                        <h3>Email</h3>
+                        <p>Isjaivenkatesh@gmail.com</p>
+                    </a>
+                    <a href="tel:+919176849828" class="contact-card" id="contact-phone">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                        </div>
+                        <h3>Phone</h3>
+                        <p>+91 917 684 9828</p>
+                    </a>
+                    <a href="https://linkedin.com/in/jaivenkatesh-l" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-linkedin">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <p>Connect with me</p>
+                    </a>
+                    <a href="https://github.com/lsjaivenkatesh" target="_blank" rel="noopener noreferrer" class="contact-card" id="contact-github">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+                            </svg>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>View my repos</p>
+                    </a>
+                    <div class="contact-card" id="contact-location">
+                        <div class="contact-card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <h3>Location</h3>
+                        <p>Chennai, India</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Jaivenkatesh L. All rights reserved. | Backend Software Engineer</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">{</span>LSJ<span class="logo-bracket">}</span>
+                </div>
+                <p class="footer-text">
+                    Designed & Built by <strong>Jaivenkatesh L</strong>
+                </p>
+                <p class="footer-copyright">
+                    &copy; 2025 All rights reserved.
+                </p>
+            </div>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // Add intersection observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections for scroll animations
-        document.querySelectorAll('section').forEach(section => {
-            if (section.id !== 'home') {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(section);
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
